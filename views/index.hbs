@@ -5,12 +5,29 @@
     <div class="row">
         <div class="col-8 container">
             <h2>Upcoming Events</h2>
-            <div>
-
+            {{#each events}}
+            <div class="card mb-3 shadow">
+                <div class="row g-0">
+                    <div class="col-md-4 bg-dark rounded-start">
+                        <img src={{#if this.imageLink}}"{{this.imageLink}}"{{else}}"images/event.jpg"{{/if}} class="img-fluid rounded-start opacity-75" style="height:100%; object-fit:cover">
+                    </div>
+                    <div class="col-md-8 d-flex align-items-end flex-column">
+                        <div class="card-body me-auto">
+                            <h4 class="card-title">{{this.title}}</h4>
+                            <p class="card-text"><small class="text-body-secondary">Date: {{this.start}}<br>Location: {{this.location}}</small></p>
+                            <p class="card-text">{{this.description}}</p>
+                        </div>
+                        {{#if this.ticketLink}}
+                        <a href="{{this.ticketLink}}" class="btn btn-secondary mt-auto m-2">Tickets <i data-feather="arrow-right"></i></a>
+                        {{/if}}
+                    </div>
+                </div>
             </div>
+            {{else}}
+            <p>There are no upcoming events.</p>
+            {{/each}}
         </div>
         <div class="col-4">
-
             <div class="container card alert info-card shadow">
                 <div class="card-body">
                     <h5 class="card-title">Open Games</h5>
