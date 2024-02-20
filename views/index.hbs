@@ -3,13 +3,13 @@
     <p class="p-2">Welcome to Ulster University's biggest tabletop RPG society. We run D&amp;D events throughout the year so join us for some awesome adventures through roleplay and boss battles. Let the dice decide your fate!</p>
 
     <div class="row">
-        <div class="col-8 container">
+        <div class="col-md-8 container">
             <h2>Upcoming Events</h2>
             {{#each events}}
             <div class="card mb-3 shadow">
                 <div class="row g-0">
-                    <div class="col-md-4 bg-dark rounded-start">
-                        <img src={{#if this.imageLink}}"{{this.imageLink}}"{{else}}"images/event.jpg"{{/if}} class="img-fluid rounded-start opacity-75" style="height:100%; object-fit:cover">
+                    <div class="col-md-4 bg-dark rounded-start eventImage">
+                        <img src={{#if this.imageLink}}"{{this.imageLink}}"{{else}}"images/event.jpg"{{/if}} class="img-fluid rounded-start opacity-75" style="object-fit:cover">
                     </div>
                     <div class="col-md-8 d-flex align-items-end flex-column">
                         <div class="card-body me-auto">
@@ -27,7 +27,7 @@
             <p>There are no upcoming events.</p>
             {{/each}}
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             <div class="container card alert info-card shadow">
                 <div class="card-body">
                     <h5 class="card-title">Open Games</h5>
