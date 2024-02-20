@@ -29,6 +29,11 @@ a {
   font-style: normal;
 }
 
+.eventImage img {
+  object-fit:cover; 
+  height:100%
+}
+
 .glow {
   color: #fff;
   text-align: center;
@@ -49,5 +54,9 @@ a {
   .eventImage {
     max-height: 100px;
     overflow: hidden;
+  }
+
+  .eventImage img {
+    height: auto;
   }
 }
