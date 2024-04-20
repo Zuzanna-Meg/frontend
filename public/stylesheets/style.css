@@ -20,7 +20,12 @@ a {
 }
 
 .info-card {
+  background-color: #fac9e1;
+}
+
+.pink-btn {
   background-color: #ff9bcd;
+  border-color: #ff9bcd;
 }
 
 .lilita-one-regular {

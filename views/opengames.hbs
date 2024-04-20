@@ -1,0 +1,22 @@
+<div class="container card p-5 m-2 shadow">
+    <h1>Open Games</h1>
+    <p>A list of games with open slots. Get in touch with us to join!</p>
+
+    <div class="row">
+        <div class="container">
+            {{#each games}}
+            <div class="card mb-3 w-75 info-card">
+                <h4 class="card-header">Title: {{this.name}}</h4>
+                <div class="card-body">
+                    <h5 class="card-title">Game Master: {{this.dm.name}}</h5>
+                    <small class="text-body-secondary">System: {{this.system}}<br>Number of Players: {{this.slots}}</small>
+                    
+                    <p class="card-text">{{this.description}}</p>
+                </div>
+            </div>
+            {{else}}
+            <p>Sorry, there aren't any open games at the moment.</p>
+            {{/each}}
+        </div>
+    </div>
+</div>

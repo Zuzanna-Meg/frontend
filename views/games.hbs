@@ -1,0 +1,85 @@
+<div class="container card p-5 m-2 shadow">
+    <h1>Games</h1>
+
+    <!--New-->
+    <div class="row align-items-start p-3">
+
+        <div class="col-8" style="text-align: left;">
+            <p>
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm"
+                    aria-expanded="false" aria-controls="collapseForm">
+                    <i data-feather="plus"></i> Add Game
+                </button>
+            </p>
+
+            <div class="collapse" id="collapseForm">
+                <div class="card card-body">
+                    <form style="font-size: 10pt;" id="newGameForm">
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="System" class="form-label">System</label>
+                            <input type="text" class="form-control" id="System">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Slots" class="form-label">Number of Slots</label>
+                            <input type="range" class="form-range" min="1" max="10" id="Slots" value="5" oninput="this.nextElementSibling.value = this.value">
+                            <output>5</output>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Description" class="form-label">Description</label>
+                            <textarea class="form-control" id="Description" rows="2"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="DM" class="form-label">Dungeon Master</label>
+                            <select class="selectpicker form-control" id="DM" data-live-search="true" title="Select DM">
+                                {{#each members}}
+                                <option value="{{json this}}">{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Players" class="form-label">Players<br></label>
+                            <select class="selectpicker form-control" id="Players" multiple data-live-search="true" data-max-options="10" title="Select players">
+                                {{#each members}}
+                                <option value="{{json this}}">{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <button id="subGameForm" class="btn btn-primary" onclick="addGame()">Submit</input> <br />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container p-3">
+        <table class="table table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">System</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each games}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.system}}</td>
+                    <td>{{this.description}}</td>
+                    <td><a href="/game/{{this.member_id}}" class="btn btn-secondary mt-auto m-2"><i data-feather="info"></i> Details</a></td>
+                </tr>
+                {{else}}
+                <tr><td colspan="4">There are no games.</td></tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
