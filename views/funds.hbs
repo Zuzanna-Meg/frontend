@@ -1,0 +1,104 @@
+<div class="container card p-5 m-2 shadow">
+    <h1>Funds</h1>
+
+    <!--New-->
+    <div class="row align-items-start p-3">
+
+        <div class="col-8" style="text-align: left;">
+            <p>
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm"
+                    aria-expanded="false" aria-controls="collapseForm">
+                    <i data-feather="plus"></i> Add Record
+                </button>
+            </p>
+
+            <div class="collapse" id="collapseForm">
+                <div class="card card-body">
+                    <form style="font-size: 10pt;" id="newMemberForm" onsubmit="addFund(event)">
+                        <div class="mb-3">
+                            <label for="Date" class="form-label">Date of Record:</label>
+                            <div class="col-sm-4">
+                                <div class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+                                    <input type="text" class="form-control" id="Date" readonly required>
+                                    <span class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i data-feather="calendar"></i>
+                                        </span>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-sm-4">
+                            <label for="Funds" class="form-label">Funds amount:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">£</span>
+                                <input type="number" class="form-control" id="Funds" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-sm-4">
+                            <label for="Grants" class="form-label">Grants amount:</label>
+                            <div class="input-group">
+                                <span class="input-group-text">£</span>
+                                <input type="number" class="form-control" id="Grants" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Comment" class="form-label">Comment</label>
+                            <input type="text" class="form-control" id="Comment" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Author" class="form-label">Author</label>
+                            <input type="text" class="form-control" id="Author" required>
+                        </div>
+
+                        <button type="submit" id="subFundForm" class="btn btn-primary">Submit</input> <br />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container p-3">
+        <canvas id="fundChart"></canvas>
+    </div>
+
+    <div class="container p-3">
+        <table class="table table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Funds</th>
+                    <th scope="col">Grants</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Author</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each funds}}
+                <tr>
+                    <td>{{this.date}}</td>
+                    <td>£{{this.funds}}</td>
+                    <td>£{{this.grants}}</td>
+                    <td>{{this.comment}}</td>
+                    <td>{{this.author}}</td>
+                    <td><button onclick="deleteFund({{this.id}})" class="btn btn-danger btn-sm" type="button"
+                            id="deleteFund"><i data-feather="trash-2"></i></button></td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="4">There are no funds.</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@^3"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+<script type="text/javascript" src="/javascripts/chart.js"></script>

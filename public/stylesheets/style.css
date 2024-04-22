@@ -16,8 +16,13 @@ section a {
 }
 
 a {
-  color: #00B7FF;
+  color: #000000;
 }
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}​
 
 .info-card {
   background-color: #fac9e1;

@@ -17,24 +17,12 @@ function formatDate(item) {
 
 async function getEvents() {
 
-  var url = 'https://uusudnd-api.azurewebsites.net/api/v1/event';
-
-  return new Promise((resolve, reject) => {
-    https.get(url, res => {
-      res.setEncoding("utf8");
-      let body = "";
-      res.on("data", data => {
-        body += data;
-      });
-      res.on("end", () => {
-        body = JSON.parse(body);
-        resolve(body);
-      });
-      res.on('error', (error) => {
-        reject(error);
-      })
-    });
+  const response = await fetch("https://uusudnd-api.azurewebsites.net/api/v1/event", {
+      method: "GET"
   });
+
+  const result = await response.json();
+  return result; 
   
 }
 

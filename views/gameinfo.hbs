@@ -1,0 +1,106 @@
+<div class="container card p-5 m-2 shadow">
+    <h1>Game Details</h1>
+    <div class="col-8" style="text-align: left;">
+        <a href="/games" class="btn btn-light" type="button"><i data-feather="arrow-left"></i> Back to Game List</a>
+    </div>
+    <div class="container p-3">
+        <div class="p-2 d-grid gap-2 col-6 mx-auto card bg-light">
+            <table class="table table-light">
+                <tbody>
+                    <tr>
+                        <th scope="row">Name</th>
+                        <td>{{game.name}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">System</th>
+                        <td>{{game.system}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Slots</th>
+                        <td>{{game.slots}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>{{game.description}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">DM</th>
+                        <td><a href="/member/{{game.dm.member_id}}"
+                                class="link-offset-2 link-offset-3-hover link-underline-danger link-underline-opacity-0 link-underline-opacity-75-hover">
+                                {{game.dm.name}}
+                            </a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Players</th>
+                        <td>
+                            <ul style="list-style-type:none;">{{#each game.players}}<li><a
+                                        class="link-underline-danger link-offset-2 link-offset-3-hover link-underline-danger link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="/members/{{this.member_id}}">{{this.name}}</a></li>{{/each}}</ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="p-2 d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-secondary pink-btn" type="button" data-bs-toggle="modal"
+                data-bs-target="#editModal">Edit <i data-feather="edit"></i></button>
+
+            <button onclick="deleteGame({{game.game_id}})" class="btn btn-danger" type="button"
+                id="deleteGame">Delete <i data-feather="trash-2"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editModalLabel">Edit Game</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form style="font-size: 10pt;" id="editGameForm" onsubmit="editGame(event, {{game.game_id}})">
+                    <div class="mb-3">
+                            <label for="Name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="Name" value="{{game.name}}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="System" class="form-label">System</label>
+                            <input type="text" class="form-control" id="System" value="{{game.system}}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Slots" class="form-label">Number of Slots</label>
+                            <input type="range" class="form-range" min="1" max="10" id="Slots" value="{{game.slots}}" oninput="this.nextElementSibling.value = this.value">
+                            <output>{{game.slots}}</output>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Description" class="form-label">Description</label>
+                            <textarea class="form-control" id="Description" rows="2" required>{{game.description}}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="DM" class="form-label">Dungeon Master</label>
+                            <select class="selectpicker form-control" id="DM" data-live-search="true" title="Select DM" required>
+                                {{#each members}}
+                                <option value="{{json this}}" {{#ifEquals ../game.dm.member_id this.member_id}}selected{{/ifEquals}}>{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Players" class="form-label">Players<br></label>
+                            <select class="selectpicker form-control" id="Players" multiple data-live-search="true" data-max-options="10" title="Select players">
+                                {{#each members}}
+                                <option value="{{json this}}" {{#ifContains ../game.players this}}selected{{/ifContains}}>{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="editGameForm"
+                    id="saveChanges">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

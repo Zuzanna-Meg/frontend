@@ -1,0 +1,152 @@
+<div class="container card p-5 m-2 shadow">
+    <h1>Events</h1>
+
+    <div class="col-8 p-3" style="text-align: left;">
+        <p>
+            <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm"
+                aria-expanded="false" aria-controls="collapseForm">
+                <i data-feather="plus"></i> Add Event
+            </button>
+        </p>
+
+        <div class="collapse" id="collapseForm">
+            <div class="card card-body">
+                <form style="font-size: 10pt;" id="newEventForm" onsubmit="addEvent(event)">
+                    <div class="mb-3">
+                        <label for="Title" class="form-label">Event Title</label>
+                        <input type="text" class="form-control" id="Title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Description" class="form-label">Description</label>
+                        <textarea class="form-control" id="Description" rows="2" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Date" class="form-label">Date</label>
+                        <div class="col-sm-4">
+                            <div class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+                                <input type="text" class="form-control" id="Date" readonly>
+                                <span class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i data-feather="calendar"></i>
+                                    </span>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-sm-2">
+                        <label for="Time" class="form-label">Time (24h)</label>
+                        <input type="time" class="form-control" id="Time" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="Location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="Location" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Ticket" class="form-label">Link to Tickets (optional)</label>
+                        <input type="url" class="form-control" id="Ticket">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Image" class="form-label">Link to Image (optional)</label>
+                        <input type="url" class="form-control" id="Image">
+                    </div>
+
+                    <button type="submit" id="subEventForm" class="btn btn-primary">Submit</input> <br />
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8 container">
+        {{#each events}}
+        <div class="card mb-3 shadow">
+            <div class="row g-0">
+                <div class="col-md-4 bg-dark rounded eventImage">
+                    <img src={{#if this.imageLink}}"{{this.imageLink}}"{{else}}"images/event.jpg"{{/if}}
+                        class="img-fluid rounded opacity-75" style="max-height:400px;">
+                </div>
+                <div class="col-md-8 d-flex align-items-end flex-column">
+                    <div class="card-body me-auto">
+                        <h4 class="card-title">{{this.title}}</h4>
+                        <p class="card-text"><small class="text-body-secondary">Date: {{local this.start}}<br>Location:
+                                {{this.location}}</small></p>
+                        <p class="card-text">{{this.description}}</p>
+                    </div>
+                    {{#if this.ticketLink}}
+                    <a href="{{this.ticketLink}}" class="btn btn-secondary mt-auto m-2">Tickets <i
+                            data-feather="arrow-right"></i></a>
+                    {{/if}}
+                </div>
+                <div class="card-footer text-body-secondary text-end">
+                    <button onclick="deleteEvent({{this.id}})" class="btn btn-danger btn-sm" type="button"
+                        id="deleteEvent"><i data-feather="trash-2"></i></button>
+                    <button class="btn btn-secondary pink-btn btn-sm" type="button" data-bs-toggle="modal"
+                        data-bs-target="#editModal-{{this.id}}"><i data-feather="edit"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="editModal-{{this.id}}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="editModalLabel">Edit Event</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form style="font-size: 10pt;" id="editEventForm-{{this.id}}" onsubmit="editEvent(event, {{this.id}})">
+                            <div class="mb-3">
+                                <label for="Title-{{this.id}}" class="form-label">Event Title</label>
+                                <input type="text" class="form-control" id="Title-{{this.id}}" required value="{{this.title}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Description-{{this.id}}" class="form-label">Description</label>
+                                <textarea class="form-control" id="Description-{{this.id}}" rows="2" required>{{this.description}}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Date-{{this.id}}" class="form-label">Date</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+                                        <input type="text" class="form-control" id="Date-{{this.id}}" readonly value="{{date this.start}}">
+                                        <span class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i data-feather="calendar"></i>
+                                            </span>
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-sm-3">
+                                <label for="Time-{{this.id}}" class="form-label">Time (24h)</label>
+                                <input type="time" class="form-control" id="Time-{{this.id}}" value="{{time this.start}}" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="Location-{{this.id}}" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="Location-{{this.id}}" required value="{{this.location}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Ticket-{{this.id}}" class="form-label">Link to Tickets (optional)</label>
+                                <input type="url" class="form-control" id="Ticket-{{this.id}}" value="{{this.ticketLink}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Image-{{this.id}}" class="form-label">Link to Image (optional)</label>
+                                <input type="url" class="form-control" id="Image-{{this.id}}" value="{{this.imageLink}}">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" form="editEventForm-{{this.id}}" id="saveChanges">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p>There are no events.</p>
+        {{/each}}
+    </div>
+</div>

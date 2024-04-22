@@ -1,0 +1,263 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "c:\\Users\\suzie\\OneDrive - Ulster University\\data\\Y4\\project\\project code\\frontend",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2024-04-22 22:26:40",
+            "filesum": 35,
+            "codesum": 6907,
+            "commentsum": 69,
+            "blanksum": 239,
+            "statistics": {
+                "": {
+                    "code": 91,
+                    "comment": 27,
+                    "blank": 36
+                },
+                ".hbs": {
+                    "code": 596,
+                    "comment": 0,
+                    "blank": 41
+                },
+                ".json": {
+                    "code": 5572,
+                    "comment": 0,
+                    "blank": 2
+                },
+                ".js": {
+                    "code": 565,
+                    "comment": 9,
+                    "blank": 140
+                },
+                ".yml": {
+                    "code": 24,
+                    "comment": 33,
+                    "blank": 7
+                },
+                ".css": {
+                    "code": 59,
+                    "comment": 0,
+                    "blank": 13
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 7,
+                    "code": 24,
+                    "comment": 33,
+                    "filename": ".github\\workflows\\main_uusudnd-frontend.yml"
+                },
+                {
+                    "blank": 17,
+                    "code": 44,
+                    "comment": 3,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 15,
+                    "code": 75,
+                    "comment": 6,
+                    "filename": "app.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 47,
+                    "comment": 24,
+                    "filename": "bin\\www"
+                },
+                {
+                    "blank": 2,
+                    "code": 5541,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "filename": "public\\images\\background.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\images\\event.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\images\\icon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\images\\logo.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 15,
+                    "code": 99,
+                    "comment": 0,
+                    "filename": "public\\javascripts\\chart.js"
+                },
+                {
+                    "blank": 48,
+                    "code": 203,
+                    "comment": 0,
+                    "filename": "public\\javascripts\\script.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "public\\stylesheets\\style.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 1,
+                    "filename": "routes\\admin.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "routes\\contactus.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 1,
+                    "filename": "routes\\events.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "routes\\funds.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "routes\\gameinfo.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "routes\\games.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 21,
+                    "comment": 1,
+                    "filename": "routes\\index.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "routes\\memberinfo.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "routes\\members.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "routes\\opengames.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "views\\admin.hbs"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "views\\contactus.hbs"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "views\\error.hbs"
+                },
+                {
+                    "blank": 5,
+                    "code": 66,
+                    "comment": 0,
+                    "filename": "views\\events.hbs"
+                },
+                {
+                    "blank": 9,
+                    "code": 90,
+                    "comment": 0,
+                    "filename": "views\\funds.hbs"
+                },
+                {
+                    "blank": 2,
+                    "code": 104,
+                    "comment": 0,
+                    "filename": "views\\gameinfo.hbs"
+                },
+                {
+                    "blank": 7,
+                    "code": 78,
+                    "comment": 0,
+                    "filename": "views\\games.hbs"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "views\\index.hbs"
+                },
+                {
+                    "blank": 5,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "views\\layout.hbs"
+                },
+                {
+                    "blank": 2,
+                    "code": 93,
+                    "comment": 0,
+                    "filename": "views\\memberinfo.hbs"
+                },
+                {
+                    "blank": 7,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "views\\members.hbs"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "views\\opengames.hbs"
+                }
+            ]
+        }
+    ]
+}

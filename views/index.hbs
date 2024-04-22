@@ -9,7 +9,7 @@
             <div class="card mb-3 shadow">
                 <div class="row g-0">
                     <div class="col-md-4 bg-dark rounded eventImage">
-                        <img src={{#if this.imageLink}}"{{this.imageLink}}"{{else}}"images/event.jpg"{{/if}} class="img-fluid rounded opacity-75">
+                        <img src={{#if this.imageLink}}"{{this.imageLink}}"{{else}}"images/event.jpg"{{/if}} class="img-fluid rounded opacity-75" style="max-height:400px;">
                     </div>
                     <div class="col-md-8 d-flex align-items-end flex-column">
                         <div class="card-body me-auto">
@@ -28,18 +28,18 @@
             {{/each}}
         </div>
         <div class="col-md-4">
-            <div class="container card alert info-card shadow">
+            <div class="container card alert shadow" style="background-color: #fac9e1;">
                 <div class="card-body">
                     <h5 class="card-title">Open Games</h5>
                     <p class="card-text">View our list of groups who are looking for players!</p>
                     <a href="/opengames" class="btn btn-secondary">See Groups <i data-feather="arrow-right"></i></a>
                 </div>
             </div>
-            <div class="container card alert info-card shadow">
+            <div class="container card alert shadow" style="background-color: #fac9e1;">
                 <div class="card-body">
                     <h5 class="card-title">Contact</h5>
                     <p class="card-text">View our contact info and where to find us!</p>
-                    <a href="#" class="btn btn-secondary">Get in touch <i data-feather="arrow-right"></i></a>
+                    <a href="/contactus" class="btn btn-secondary">Get in touch <i data-feather="arrow-right"></i></a>
                 </div>
             </div>
         </div>

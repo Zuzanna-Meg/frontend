@@ -14,14 +14,14 @@
 
             <div class="collapse" id="collapseForm">
                 <div class="card card-body">
-                    <form style="font-size: 10pt;" id="newGameForm">
+                    <form style="font-size: 10pt;" id="newGameForm" onsubmit="addGame(event)">
                         <div class="mb-3">
                             <label for="Name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="Name">
+                            <input type="text" class="form-control" id="Name" required>
                         </div>
                         <div class="mb-3">
                             <label for="System" class="form-label">System</label>
-                            <input type="text" class="form-control" id="System">
+                            <input type="text" class="form-control" id="System" required>
                         </div>
                         <div class="mb-3">
                             <label for="Slots" class="form-label">Number of Slots</label>
@@ -30,11 +30,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="Description" class="form-label">Description</label>
-                            <textarea class="form-control" id="Description" rows="2"></textarea>
+                            <textarea class="form-control" id="Description" rows="2" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="DM" class="form-label">Dungeon Master</label>
-                            <select class="selectpicker form-control" id="DM" data-live-search="true" title="Select DM">
+                            <select class="selectpicker form-control" id="DM" data-live-search="true" title="Select DM" required>
                                 {{#each members}}
                                 <option value="{{json this}}">{{this.name}}</option>
                                 {{/each}}
@@ -49,7 +49,7 @@
                             </select>
                         </div>
 
-                        <button id="subGameForm" class="btn btn-primary" onclick="addGame()">Submit</input> <br />
+                        <button type="submit" id="subGameForm" class="btn btn-primary">Submit</input> <br />
 
                     </form>
                 </div>
@@ -73,7 +73,7 @@
                     <td>{{this.name}}</td>
                     <td>{{this.system}}</td>
                     <td>{{this.description}}</td>
-                    <td><a href="/game/{{this.member_id}}" class="btn btn-secondary mt-auto m-2"><i data-feather="info"></i> Details</a></td>
+                    <td><a href="/game/{{this.game_id}}" class="btn btn-secondary mt-auto m-2"><i data-feather="info"></i> Details</a></td>
                 </tr>
                 {{else}}
                 <tr><td colspan="4">There are no games.</td></tr>
