@@ -1,8 +1,3 @@
-$(document).ready(async function () {
-    $('.selectpicker').selectpicker();
-    $('.datepicker').datepicker();
-});
-
 function toggleBcode() {
     document.getElementById('Bcode').disabled = !document.getElementById('Student').checked;
     document.getElementById('Bcode').value = "";
