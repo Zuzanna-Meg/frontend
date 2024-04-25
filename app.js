@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors');
 var Handlebars = require('hbs');
 const { auth } = require('express-openid-connect');
 
@@ -23,20 +22,14 @@ var app = express();
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: 'a long, randomly-generated string stored in env',
+  secret: 'mzHWIEuded42Vox2xgczbkBUOFz7gVHn',
   // baseURL: 'http://localhost:3000',
   baseURL: 'https://uusudnd-frontend.azurewebsites.net',
   clientID: 'xzCN1A9EH6ujU6V19VuhaWcM1NU12SsV',
   issuerBaseURL: 'https://dev-u15cfnmqexzcnfbq.us.auth0.com'
 };
 
-const corsOptions = {
-  credentials: true,
-  origin: ['http://localhost:3000', 'https://uusudnd-api.azurewebsites.net']
-}
-
 app.use(auth(config));
-app.use(cors(corsOptions))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

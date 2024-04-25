@@ -1,13 +1,13 @@
-<div class="container card p-5 m-2 shadow">
+<div class="container card p-5 m-2 shadow text-center">
     <h1>Open Games</h1>
-    <p>A list of games with open slots. Get in touch with us to join!</p>
+    <p class="text-center">A list of games with open slots. <a href="/contactus">Get in touch</a> with us to join!</p>
 
     <div class="row">
         <div class="container">
             {{#each games}}
-            <div class="card mb-3 w-75 shadow">
-                <h4 class="card-header">Title: {{this.name}}</h4>
-                <div class="card-body" style="background-color: #f8dbe9;">
+            <div class="card bg-light mb-3 w-50 shadow mx-auto">
+                <h4 class="card-header" style="background-color: #f8dbe9;">Title: {{this.name}}</h4>
+                <div class="card-body" style="background-color: lightgrey;">
                     <h5 class="card-title">Game Master: {{this.dm.name}}</h5>
                     <small class="text-body-secondary">System: {{this.system}}<br>Number of Players: {{this.slots}}</small>
                     
